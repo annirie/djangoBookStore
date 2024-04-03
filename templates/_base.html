@@ -1,4 +1,7 @@
+{% load socialaccount %}
+
 {% load static %}
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,15 +27,22 @@ gle navigation">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sign-out' %}">Sign Out</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{% provider_login_url 'google' %}" class="nav-link">
+                            <span>Log In with Google</span>
+                        </a>
+                    </li>
+
+                    
                 {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
