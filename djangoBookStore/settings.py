@@ -155,12 +155,6 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",  # default django model
     "allauth.account.auth_backends.AuthenticationBackend",  # model for allauth
 )
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -178,3 +172,21 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     },
 }
+
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+# configure smtp2go
+EMAIL_HOST = env('SMTP2GO_EMAIL_HOST')
+EMAIL_HOST_USER = env('SMTP2GO_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('SMTP2GO_EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env('SMTP2GO_EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# API key=  api-897C688B3CCB46B198BB7A4E637384F0 # API keys required to use the SMTP2GO API
