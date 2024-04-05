@@ -48,9 +48,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    # Third-party
+    # Local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
 ]
 
 MIDDLEWARE = [
@@ -145,6 +146,10 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# media config
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'
 
 # django-allauth config
 
