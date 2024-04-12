@@ -2,10 +2,47 @@ h1 {
     color: #416fb4;
 }
 
+.book-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.book-detail h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 .book-cover {
-    /*height: 100px;*/
-    /*width: auto;*/
-    height:500px;
-    width:500px;
-    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.book-detail p {
+    margin-bottom: 10px;
+}
+
+/* Reviews */
+.book-reviews h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.book-reviews ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-reviews li {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.book-reviews li:last-child {
+    border-bottom: none;
 }

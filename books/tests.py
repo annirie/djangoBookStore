@@ -1,16 +1,19 @@
 import os
 import uuid
 
+from accounts.models import CustomUser
+from django.db.models.functions import datetime
 from django.test import TestCase
 from django.urls import reverse
 
 from djangoBookStore.settings import MEDIA_ROOT
-from .models import Book
+from .models import Book, Review
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class BookTests(TestCase):
-    cover_file = None
+    user = None
+    book = None
 
     @classmethod
     def setUpTestData(cls):
@@ -19,6 +22,8 @@ class BookTests(TestCase):
         cover_file = SimpleUploadedFile(name='test_image.jpg', content=open(file_path, 'rb').read(),
                                         content_type='image/jpeg')
 
+        cls.user = CustomUser.objects.create_user(username='review_test_user', password='review_password123',
+                                                  email='review_test_email.gmail.com')
         cls.book = Book.objects.create(
             title="Harry Potter",
             author="JK Rowling",
@@ -26,7 +31,13 @@ class BookTests(TestCase):
             description="Description",
             price=504,
             cover=cover_file,
-            # id=uuid.uuid4()
+        )
+
+        cls.review = Review.objects.create(
+            book=cls.book,
+            author=cls.user,
+            text="An excellent review",
+            date=datetime.datetime.now()
         )
 
     def test_book_listing(self):
@@ -58,4 +69,5 @@ class BookTests(TestCase):
         self.assertContains(response, "Publisher")
         self.assertContains(response, "Description")
         self.assertContains(response, "JK Rowling")
+        self.assertContains(response, "An excellent review")
         self.assertTemplateUsed(response, "book/book_detail.html")
