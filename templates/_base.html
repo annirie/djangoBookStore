@@ -47,10 +47,13 @@ gle navigation">
                         </a>
                     </li>
                 {% endif %}
-
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'top_books' %}">See Top Books</a>
+                    <a class="nav-link" href="{% url 'all_book_list' %}">See All Books</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'top_book_list' %}">See Top Books</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>

@@ -3,9 +3,10 @@
 {% block content %}
     {% for book in books %}
         <li>
-            <img src="{{ book.cover.url }}" width='300'/>
+            <img class="book-cover" src="{{ book.cover.url }}" alt=""/>
             <h5>{{ book.title }}</h5>
             <p>{{ book.description }}</p>
+            <p>Url to the book cover media: {{ book.cover.url }}</p>
         </li>
     {% empty %}
         <p>There are no books in the library.</p>

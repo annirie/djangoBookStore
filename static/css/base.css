@@ -3,6 +3,9 @@ h1 {
 }
 
 .book-cover {
-    height: 300px;
-    width: auto;
+    /*height: 100px;*/
+    /*width: auto;*/
+    height:500px;
+    width:500px;
+    object-fit: contain;
 }

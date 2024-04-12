@@ -194,4 +194,3 @@ EMAIL_PORT = env('SMTP2GO_EMAIL_PORT')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-# API key=  api-897C688B3CCB46B198BB7A4E637384F0 # API keys required to use the SMTP2GO API
