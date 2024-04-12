@@ -6,8 +6,9 @@ from django.urls import reverse
 
 # Create your models here.
 class Book(models.Model):
-    uuid = models.UUIDField(default=uuid.uuid4,
-                            unique=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4,
+                          serialize=False, editable=False, primary_key=True)
+
     title = models.CharField(max_length=250)
     author = models.CharField(max_length=250)
     publisher = models.CharField(max_length=250)
