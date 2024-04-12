@@ -2,8 +2,8 @@ from django.views.generic import ListView, CreateView, DetailView
 
 from django.shortcuts import render
 
-from books.forms import BookForm
-from books.models import Book
+from books.forms import BookForm, ReviewForm
+from books.models import Book, Review
 
 
 # Create your views here.
@@ -32,3 +32,9 @@ class BookDetailView(DetailView):
     model = Book
     context_object_name = 'book'
     template_name = 'book/book_detail.html'
+
+
+class CreateReviewView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'book/create_book_review.html'

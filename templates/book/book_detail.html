@@ -8,7 +8,7 @@
         <p>Publisher: {{ book.publisher }}</p>
         <p>Description: {{ book.description }}</p>
         <p>Price: {{ book.price }}</p>
-    
+
         <div class="book-reviews">
             <h3>Reviews</h3>
             <ul>
@@ -16,8 +16,13 @@
                     <li>{{ review.text }} ({{ review.author }} | {{ review.date }})</li>
                 {% endfor %}
             </ul>
+
+            <a href="{% url 'create_review' %}" class="add-review-btn">
+                <span>Add Review</span>
+            </a>
+
         </div>
     </div>
-    
+
 
 {% endblock content %}

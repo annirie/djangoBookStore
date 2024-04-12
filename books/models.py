@@ -35,4 +35,5 @@ class Review(models.Model):
     def __str__(self):
         return self.text
 
-
+    def get_absolute_url(self):
+        return reverse('book_detail', kwargs={'pk': self.book.id})
